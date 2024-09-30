@@ -25,6 +25,7 @@ const StyledToDoWrapper = styled.div`
   width: 100%;
   max-width: 550px;
   margin: 35px 15px 0;
+  align-items: center;
 
   .title {
     font-size: ${({ theme }) => theme.f_size.header};
