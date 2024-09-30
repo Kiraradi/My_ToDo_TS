@@ -6,7 +6,7 @@ import { createNewTask } from "../../services";
 import { addTasks } from "../../store/todoSlise";
 import CustomInput from "../CustomInput/CustomInput";
 
-const TodoForm = () => {
+const TodoForm: React.FC = () => {
     const [taskText, setTaskText] = React.useState('');
     const dispatch = useAppDispatch();
 

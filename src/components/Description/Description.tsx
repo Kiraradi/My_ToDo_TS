@@ -1,6 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 
-const Description = () => {
+const Description: React.FC = () => {
     return (
         <StyledDescription >
             <p className='description_text'>

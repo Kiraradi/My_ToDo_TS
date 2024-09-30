@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import TodoForm from "../TodoForm/TodoForm";
 
@@ -6,7 +7,7 @@ import { useAppSelector } from '../../store/hooks/useAppSelector';
 import { toggleStatusAllTasks } from "../../store/todoSlise";
 import { itemsLeft } from "../../store/todoSelectors";
 
-const Menu = () => {
+const Menu: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const activeTasksCounter = useAppSelector(itemsLeft);

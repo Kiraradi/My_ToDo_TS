@@ -7,7 +7,7 @@ interface ICustomInput {
   placeholder?: string
 }
 
-const CustomInput:React.FC<ICustomInput> = (props) => {
+const CustomInput: React.FC<ICustomInput> = (props) => {
   return (
     <input onChange={props.onChange} value={props.value} className={props.className} placeholder={props.placeholder} />
   )

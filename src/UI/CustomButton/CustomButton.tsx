@@ -7,7 +7,7 @@ interface ICustomButton {
     text: string
 }
 
-const CustomButton:React.FC<ICustomButton> = (props) => (
+const CustomButton: React.FC<ICustomButton> = (props) => (
     <StyledButtonContainer isActive={props.isActive} >
         <button
             className='button'

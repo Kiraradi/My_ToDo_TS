@@ -5,7 +5,7 @@ import TaskItem from "../TaskItem/TaskItem";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
 import { filretedTasksList } from "../../store/todoSelectors";
 
-const TasksList = () => {
+const TasksList: React.FC = () => {
   const filteredList = useAppSelector(filretedTasksList);
 
   return (

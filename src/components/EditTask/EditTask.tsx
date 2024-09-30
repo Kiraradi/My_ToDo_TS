@@ -10,8 +10,8 @@ interface IEditTask {
     toggleEdit: () => void
 }
 
-const EditTask:React.FC<IEditTask> = (props) => {
-    const [taskText, setTaskText] = React.useState(props.task.text);
+const EditTask: React.FC<IEditTask> = (props) => {
+    const [taskText, setTaskText] = React.useState<string>(props.task.text);
     const dispatch = useAppDispatch();
 
     const handleChange = (event: React.FormEvent<HTMLInputElement>) => {

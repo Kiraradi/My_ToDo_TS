@@ -5,7 +5,7 @@ import { useAppSelector } from '../../store/hooks/useAppSelector';
 import { deleteCompletedTasks } from '../../store/todoSlise';
 import { itemsLeft } from '../../store/todoSelectors';
 
-const Footer = () => {
+const Footer: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const activeTasksCounter = useAppSelector(itemsLeft);

@@ -11,7 +11,7 @@ import { TaskType } from "../../types";
 export interface ITaskItem {
   task: TaskType
 }
-const TaskItem:React.FC<ITaskItem> = (props) => {
+const TaskItem: React.FC<ITaskItem> = (props) => {
   const { task } = props;
   const [isEditing, setIsEditing] = React.useState(false);
   const dispatch = useDispatch();
