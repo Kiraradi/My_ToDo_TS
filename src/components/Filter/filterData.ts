@@ -1,14 +1,16 @@
+import { FilterStatuses } from "../../enuns"
+
 export const filterData = [
     {
         text:'Все',
-        id: 'All'
+        id: FilterStatuses.All
     },
     {
         text:'Активные',
-        id: 'Active'
+        id: FilterStatuses.Active
     },
     {
         text:'Завершенные',
-        id: 'Completed'
+        id: FilterStatuses.Completed
     }
 ]

@@ -1,15 +1,14 @@
-import { typeTask } from "./types";
+import { TaskType } from "./types";
 
 export const getId = ():string => {
     return Math.random().toString(16).slice(2)
 }
 
-export const createNewTask = (text:string): typeTask => {
+export const createNewTask = (text:string): TaskType => {
     const newTask = {
         id: getId(),
         text: text,
-        creationTime: new Date().getTime(),
-        status: false,
+        isCompleted : false,
     }
 
     return newTask;

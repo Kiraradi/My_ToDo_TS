@@ -26,7 +26,7 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default Menu;
 
 
 const StyledMenu = styled.div`

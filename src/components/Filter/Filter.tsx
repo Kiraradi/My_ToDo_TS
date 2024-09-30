@@ -22,11 +22,11 @@ const Filter = () => {
   return (
     <StyledFilterContainer>
       {
-        filterData.map(button => {
+        filterData.map((button) => {
           return <CustomButton
             key={button.id}
             text={button.text}
-            active={button.id === currentFilter}
+            isActive={button.id === currentFilter}
             onClick={() => handleClick(button.id)}
           />
         })

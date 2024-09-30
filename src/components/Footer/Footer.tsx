@@ -9,7 +9,7 @@ const Footer = () => {
     const dispatch = useAppDispatch();
 
     const activeTasksCounter = useAppSelector(itemsLeft);
-    //Если не использую event нужно типизировать? 
+     
     const handleDeleteCompletedTasks = () => {
         dispatch(deleteCompletedTasks());
     }

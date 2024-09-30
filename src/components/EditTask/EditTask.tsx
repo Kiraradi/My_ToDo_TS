@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { useAppDispatch } from '../../store/hooks/useAppDispatch';
 import { editTask } from '../../store/todoSlise';
 import CustomInput from '../CustomInput/CustomInput';
-import { typeTask } from '../../types';
+import { TaskType } from '../../types';
 
 interface IEditTask {
-    task: typeTask
+    task: TaskType
     toggleEdit: () => void
 }
 
@@ -14,12 +14,12 @@ const EditTask:React.FC<IEditTask> = (props) => {
     const [taskText, setTaskText] = React.useState(props.task.text);
     const dispatch = useAppDispatch();
 
-    const handleChange = (event:React.FormEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
         event.preventDefault();
         setTaskText(event.currentTarget.value);
     }
 
-    const handleEdit = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleEdit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
 
         if (!taskText.trim()) {
@@ -32,8 +32,10 @@ const EditTask:React.FC<IEditTask> = (props) => {
                 id: props.task.id
             }
         ));
+
         props.toggleEdit();
-    }
+    };
+
     return (
         <StyledEditTask>
             <CustomInput className='edit_input' value={taskText} onChange={handleChange}/>

@@ -16,8 +16,8 @@ root.render(
     <ThemeProvider theme={baseTheme}>
       <Provider store={makeStore}>
         <App />
-      </Provider>  
-    </ThemeProvider>  
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

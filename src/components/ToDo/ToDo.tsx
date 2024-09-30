@@ -3,7 +3,7 @@ import TodoContainer from "../TodoContainer/TodoContainer";
 import Menu from "../Menu/Menu";
 
 
-const ToDo = () => {
+const ToDo: React.FC = () => {
   return (
     <StyledToDoWrapper>
       <h1 className="title">Todos</h1>

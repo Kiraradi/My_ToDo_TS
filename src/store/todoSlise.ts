@@ -1,34 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IStore } from './types';
-import { typeTask } from '../types'
+import { TaskType } from "../types";
 
-const initialState:IStore<typeTask> = {
+const initialState: IStore = {
     currentFilter: 'All',
     tasksList: [],
+}
+
+interface IEditTaskPayload {
+    newText: string
+    id: string
 }
 
 export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        addTasks(state, action) {
+        addTasks(state, action: PayloadAction<TaskType>) {
             state.tasksList.push(action.payload);
         },
-        removeTask(state, action) {
+        removeTask(state, action: PayloadAction<string>) {
             const id = action.payload;
             state.tasksList = state.tasksList.filter(task => task.id !== id);
         },
-        toggleStatus(state, action) {
+        toggleComplete(state, action: PayloadAction<string>) {
             const id = action.payload;
             state.tasksList = state.tasksList.map(task => {
                 if(task.id === id) {
-                    task.status = !task.status;
+                    task.isCompleted  = !task.isCompleted ;
                 }
 
                 return task;
             });
         },
-        editTask(state, action) {
+        editTask(state, action: PayloadAction<IEditTaskPayload>) {
             const {newText, id} = action.payload;
 
             state.tasksList = state.tasksList.map(task => {
@@ -39,18 +44,18 @@ export const todoSlice = createSlice({
                 return task;
             });
         },
-        changeCurrentFilter(state, action) {
+        changeCurrentFilter(state, action: PayloadAction<string>) {
             const newFilter = action.payload;
 
             state.currentFilter = newFilter;
         },
         deleteCompletedTasks(state) {
-            state.tasksList = state.tasksList.filter(task => !task.status);
+            state.tasksList = state.tasksList.filter(task => !task.isCompleted );
         },
-        toggleStatusAllTasks(state, action) {
+        toggleStatusAllTasks(state, action: PayloadAction<boolean>) {
             const newStatus = action.payload;
             state.tasksList = state.tasksList.map((task) => {
-                task.status = newStatus
+                task.isCompleted  = newStatus
                 return task
             });
         }
@@ -60,7 +65,7 @@ export const todoSlice = createSlice({
 export default todoSlice.reducer;
 export const {  addTasks, 
                 removeTask, 
-                toggleStatus, 
+                toggleComplete, 
                 editTask, 
                 changeCurrentFilter, 
                 deleteCompletedTasks, 

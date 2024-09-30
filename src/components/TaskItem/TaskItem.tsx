@@ -5,11 +5,11 @@ import CustomCheckBox from "../../UI/CustomCheckBox/CustomCheckBox";
 import EditTask from "../EditTask/EditTask";
 
 import { useDispatch } from "react-redux";
-import { removeTask, toggleStatus } from "../../store/todoSlise";
-import { typeTask } from "../../types";
+import { removeTask, toggleComplete } from "../../store/todoSlise";
+import { TaskType } from "../../types";
 
 export interface ITaskItem {
-  task: typeTask
+  task: TaskType
 }
 const TaskItem:React.FC<ITaskItem> = (props) => {
   const { task } = props;
@@ -21,7 +21,7 @@ const TaskItem:React.FC<ITaskItem> = (props) => {
   }
 
   const toggleStatusById = () => {
-    dispatch(toggleStatus(task.id));
+    dispatch(toggleComplete(task.id));
   }
 
   const toggleEdit = () => {
@@ -31,7 +31,7 @@ const TaskItem:React.FC<ITaskItem> = (props) => {
   return (
     <StyledTaskContainer>
       <CustomCheckBox
-        active={task.status}
+        isActive={task.isCompleted }
         onChange={toggleStatusById}
       />
       {
@@ -39,7 +39,7 @@ const TaskItem:React.FC<ITaskItem> = (props) => {
           <EditTask task={task} toggleEdit={toggleEdit} />
         ) : (
           <>
-            <span className={`task_text ${task.status && 'task_text_active'}`}>{task.text}</span>
+            <span className={`task_text ${task.isCompleted  && 'task_text_active'}`}>{task.text}</span>
             <div className="buttons_wrapper">
               <button className="button button_edit" onClick={toggleEdit}></button>
               <button className="button button_delete" onClick={deleteTask}></button>

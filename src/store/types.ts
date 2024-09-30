@@ -1,4 +1,6 @@
-export interface IStore<T> {
+import { TaskType } from "../types";
+
+export interface IStore {
   currentFilter: string,
-  tasksList: T[]
+  tasksList: TaskType[]
 }

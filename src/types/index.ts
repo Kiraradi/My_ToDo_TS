@@ -1,5 +1,5 @@
-export type typeTask = {
+export type TaskType = {
   id: string,
   text: string,
-  status: boolean
+  isCompleted : boolean
 }

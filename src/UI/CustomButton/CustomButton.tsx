@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface ICustomButton {
-    active: boolean
+    isActive: boolean
     onClick: (event:React.MouseEvent<HTMLButtonElement>) => void
     text: string
 }
 
 const CustomButton:React.FC<ICustomButton> = (props) => (
-    <StyledButtonContainer status={props.active} >
+    <StyledButtonContainer isActive={props.isActive} >
         <button
-            className={'button'}
+            className='button'
             onClick={props.onClick}
         >
             {props.text}
@@ -20,7 +20,7 @@ const CustomButton:React.FC<ICustomButton> = (props) => (
 
 export default CustomButton;
 
-const StyledButtonContainer = styled.div<{status: boolean}> `
+const StyledButtonContainer = styled.div<{isActive: boolean}> `
     display: flex;
     width: 100%;
     max-width: 150px;
@@ -34,7 +34,7 @@ const StyledButtonContainer = styled.div<{status: boolean}> `
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: ${({status, theme}) =>  status ? theme.colors.red : theme.colors.white};
+        background-color: ${({isActive, theme}) =>  isActive ? theme.colors.red : theme.colors.white};
         cursor: pointer;
         font-weight: 600;
         border: 2px solid ${({theme}) => theme.colors.black};
