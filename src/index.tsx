@@ -5,15 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { makeStore } from './store';
+import { ThemeProvider } from 'styled-components';
+import { baseTheme } from './theme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={makeStore}>
-      <App />
-    </Provider>    
+    <ThemeProvider theme={baseTheme}>
+      <Provider store={makeStore}>
+        <App />
+      </Provider>  
+    </ThemeProvider>  
   </React.StrictMode>
 );
 

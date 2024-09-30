@@ -6,6 +6,6 @@ export const makeStore = configureStore({
         todo: todoReduser
     }
 })
-
-export type AppDispatch = typeof makeStore.dispatch;
-export type AppState = typeof makeStore.getState;
+export type AppStore = typeof makeStore;
+export type AppDispatch = AppStore['dispatch'];
+export type AppState = ReturnType<typeof makeStore.getState>;

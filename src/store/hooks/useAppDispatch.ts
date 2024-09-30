@@ -1,4 +1,4 @@
-import { TypedUseSelectorHook, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { AppDispatch } from '..';
 
-export const useAppDispatch: TypedUseSelectorHook<AppDispatch> = useDispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch
